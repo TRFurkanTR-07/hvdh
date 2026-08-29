@@ -1,169 +1,295 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mobil Uygulama</title>
-  <style>
-    /* Lemon Milk Font Tanımlaması */
-    @font-face {
-      font-family: 'LemonMilk';
-      src: url('https://fonts.cdnfonts.com/s/18166/LEMONMILK-Regular.woff') format('woff');
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şapşal Meliss 💖</title>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'LemonMilk', sans-serif;
-    }
+    <!-- Limon Milk fontu -->
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/limon-milk');
 
-    body {
-      background-color: #f4f4f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow: hidden;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Mobil Ekran Çerçevesi */
-    .mobile-container {
-      width: 100%;
-      max-width: 400px;
-      height: 100vh;
-      background: #ffffff;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      padding: 40px 20px;
-      position: relative;
-      text-align: center;
-    }
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
 
-    /* Ana Başlık Yazısı */
-    .title {
-      font-size: 24px;
-      color: #333;
-      margin-top: 50px;
-      word-break: break-word;
-    }
+            font-family: 'Lemon/Milk', sans-serif;
 
-    /* Buton Alanı */
-    .button-group {
-      display: flex;
-      justify-content: space-around;
-      width: 100%;
-      margin-bottom: 30px;
-    }
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.35), transparent 30%),
+                radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.35), transparent 30%),
+                linear-gradient(135deg, #16001f, #3b0b45, #13001c);
 
-    .btn {
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      outline: none;
-      padding: 10px;
-      transition: transform 0.2s;
-    }
+            position: relative;
+        }
 
-    .btn:active {
-      transform: scale(0.95);
-    }
+        /* Arka plan ışıkları */
+        body::before,
+        body::after {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.45;
+            animation: float 8s ease-in-out infinite alternate;
+        }
 
-    /* Buton İçi Görsel */
-    .btn img {
-      width: 70px;
-      height: 70px;
-      object-fit: contain;
-    }
+        body::before {
+            background: #ff4fa3;
+            top: -100px;
+            left: -100px;
+        }
 
-    /* Tam Ekran Siyah Video Katmanı */
-    .video-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #000000;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
+        body::after {
+            background: #7c3aed;
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 2s;
+        }
 
-    .video-overlay video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  </style>
+        @keyframes float {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(70px, 50px);
+            }
+        }
+
+        /* Küçük kalpler */
+        .heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.18);
+            font-size: 25px;
+            animation: rise 8s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-120vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Ana kutu */
+        .container {
+            position: relative;
+            z-index: 2;
+
+            width: min(90%, 650px);
+            padding: 55px 35px;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            border-radius: 35px;
+
+            box-shadow:
+                0 25px 80px rgba(0, 0, 0, 0.4),
+                inset 0 0 30px rgba(255, 255, 255, 0.04);
+
+            animation: appear 1s ease;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        h1 {
+            color: white;
+            font-size: clamp(28px, 5vw, 46px);
+            line-height: 1.3;
+
+            text-shadow:
+                0 0 10px rgba(255, 105, 180, 0.7),
+                0 0 30px rgba(255, 105, 180, 0.35);
+
+            margin-bottom: 40px;
+        }
+
+        /* Butonlar */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            border: none;
+            outline: none;
+
+            padding: 16px 42px;
+
+            border-radius: 999px;
+
+            font-family: inherit;
+            font-size: 18px;
+            font-weight: bold;
+
+            color: white;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .yes {
+            background: linear-gradient(135deg, #ff4fa3, #ff79bd);
+
+            box-shadow:
+                0 10px 30px rgba(255, 79, 163, 0.35);
+        }
+
+        .no {
+            background: rgba(255, 255, 255, 0.12);
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .yes:hover {
+            box-shadow:
+                0 15px 40px rgba(255, 79, 163, 0.55);
+        }
+
+        .no:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Resim alanı */
+        #result {
+            display: none;
+            margin-top: 35px;
+
+            animation: resultAppear 0.5s ease;
+        }
+
+        @keyframes resultAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        #result img {
+            width: 100%;
+            max-width: 420px;
+            max-height: 400px;
+
+            object-fit: contain;
+
+            border-radius: 25px;
+
+            border: 2px solid rgba(255, 255, 255, 0.2);
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.45);
+        }
+
+        .message {
+            color: rgba(255,255,255,0.8);
+            margin-top: 15px;
+            font-size: 14px;
+        }
+    </style>
 </head>
+
 <body>
 
-  <div class="mobile-container">
-    <!-- Ekranda Görünecek Yazı -->
-    <h1 class="title"> ŞAPŞİK MELİSS SEN MİSİN ? 🧐💖 </h1>
+    <!-- Dekoratif kalpler -->
+    <div class="heart" style="left:10%; animation-delay:0s;">💖</div>
+    <div class="heart" style="left:25%; animation-delay:2s;">♡</div>
+    <div class="heart" style="left:45%; animation-delay:4s;">💗</div>
+    <div class="heart" style="left:65%; animation-delay:1s;">♡</div>
+    <div class="heart" style="left:85%; animation-delay:3s;">💖</div>
 
-    <!-- Butonlar -->
-    <div class="button-group">
-      <!-- Sol Buton (Video Açan) -->
-      <button class="btn" id="leftBtn">
-        <img src="sol-buton-resmi.png" alt="Sol Buton">
-      </button>
+    <div class="container">
 
-      <!-- Sağ Buton (Devamını Anlatacağın Kısım) -->
-      <button class="btn" id="rightBtn">
-        <img src="sag-buton-resmi.png" alt="Sağ Buton">
-      </button>
+        <h1>
+            Şapşal Meliss<br>
+            Sen Misin ? 🧐💖
+        </h1>
+
+        <div class="buttons">
+            <button class="yes" onclick="showImage('evet.jpg', 'Hehehe 💖')">
+                Evet
+            </button>
+
+            <button class="no" onclick="showImage('hayir.jpg', 'Hmmm... 🧐')">
+                Hayır
+            </button>
+        </div>
+
+        <!-- Sonuç -->
+        <div id="result">
+            <img id="resultImage" src="" alt="Sonuç">
+            <div class="message" id="message"></div>
+        </div>
+
     </div>
 
-    <!-- Siyah Ekran Video Katmanı -->
-    <div class="video-overlay" id="videoOverlay">
-      <video id="myVideo" src="video.mp4" playsinline muted></video>
-    </div>
-  </div>
+    <script>
+        function showImage(image, message) {
 
-  <script>
-    const leftBtn = document.getElementById('leftBtn');
-    const rightBtn = document.getElementById('rightBtn');
-    const videoOverlay = document.getElementById('videoOverlay');
-    const myVideo = document.getElementById('myVideo');
+            const result = document.getElementById("result");
+            const resultImage = document.getElementById("resultImage");
+            const messageText = document.getElementById("message");
 
-    // Sol Butona Basıldığında
-    leftBtn.addEventListener('click', () => {
-      videoOverlay.style.display = 'flex'; // Siyah ekranı aç
-      myVideo.currentTime = 0;
-      myVideo.play(); // Videoyu başlat
+            resultImage.src = image;
+            messageText.textContent = message;
 
-      // 10 saniye (10000 ms) sonra kapat ve ana sayfaya dön
-      setTimeout(() => {
-        myVideo.pause();
-        videoOverlay.style.display = 'none'; // Siyah ekranı gizle
-      }, 10000);
-    });
-
-        // Sağ Buton Dinleyicisi
-    rightBtn.addEventListener('click', () => {
-      // Sağ buton mantığı buraya gelecek
-    });
-
-    // --- BURADAN İTİBAREN EKLENECEK MÜZİK KODLARI ---
-    const bgMusic = document.getElementById('bgMusic');
-
-    window.addEventListener('DOMContentLoaded', () => {
-      bgMusic.play().catch(() => {
-        document.addEventListener('click', () => {
-          bgMusic.play();
-        }, { once: true });
-      });
-    });
-  </script>
-
-  <!-- HTML MÜZİK ETİKETİ -->
-  <audio id="bgMusic" autoplay loop>
-    <source src="müzik.mp3" type="audio/mpeg">
-  </audio>
+            result.style.display = "block";
+        }
+    </script>
 
 </body>
 </html>
