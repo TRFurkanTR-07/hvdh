@@ -143,28 +143,27 @@
       }, 10000);
     });
 
-    // Sağ Buton Dinleyicisi (Sen anlattığında burayı dolduracağız)
+        // Sağ Buton Dinleyicisi
     rightBtn.addEventListener('click', () => {
       // Sağ buton mantığı buraya gelecek
     });
-<!-- Otomatik Çalan Arka Plan Müziği -->
-<audio id="bgMusic" autoplay loop>
-  <source src="arkaplan-muzigi.mp3" type="audio/mpeg">
-  Tarayıcınız ses etiketini desteklemiyor.
-</audio>
-});
-  </script>
-const bgMusic = document.getElementById('bgMusic');
 
-// Sayfa yüklendiğinde müziği başlatmayı dene
-window.addEventListener('DOMContentLoaded', () => {
-  bgMusic.play().catch(() => {
-    // Eğer tarayıcı engellerse, kullanıcının ekrandaki ilk dokunuşunda müziği anında başlatır
-    document.addEventListener('click', () => {
-      bgMusic.play();
-    }, { once: true });
-  });
-});
+    // --- BURADAN İTİBAREN EKLENECEK MÜZİK KODLARI ---
+    const bgMusic = document.getElementById('bgMusic');
+
+    window.addEventListener('DOMContentLoaded', () => {
+      bgMusic.play().catch(() => {
+        document.addEventListener('click', () => {
+          bgMusic.play();
+        }, { once: true });
+      });
+    });
+  </script>
+
+  <!-- HTML MÜZİK ETİKETİ -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="arkaplan-muzigi.mp3" type="audio/mpeg">
+  </audio>
 
 </body>
 </html>
