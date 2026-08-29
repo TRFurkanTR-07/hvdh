@@ -154,6 +154,17 @@
 </audio>
 });
   </script>
+const bgMusic = document.getElementById('bgMusic');
+
+// Sayfa yüklendiğinde müziği başlatmayı dene
+window.addEventListener('DOMContentLoaded', () => {
+  bgMusic.play().catch(() => {
+    // Eğer tarayıcı engellerse, kullanıcının ekrandaki ilk dokunuşunda müziği anında başlatır
+    document.addEventListener('click', () => {
+      bgMusic.play();
+    }, { once: true });
+  });
+});
 
 </body>
 </html>
