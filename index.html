@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
 
     <title>Şapşal Meliss 💖</title>
 
+
+    <!-- Limon Milk Font -->
+
     <style>
+
         @import url('https://fonts.cdnfonts.com/css/limon-milk');
+
+
+        /* =========================
+           TEMEL AYARLAR
+        ========================== */
 
         * {
             margin: 0;
@@ -15,267 +30,615 @@
             box-sizing: border-box;
         }
 
+
+        html,
         body {
+            width: 100%;
+            min-height: 100%;
+
+            overflow-x: hidden;
+        }
+
+
+        body {
+
             min-height: 100vh;
+            min-height: 100dvh;
+
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+
+            padding: 20px;
 
             font-family: 'Lemon/Milk', sans-serif;
 
             background:
-                radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.35), transparent 30%),
-                radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.35), transparent 30%),
-                linear-gradient(135deg, #16001f, #3b0b45, #13001c);
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(255, 105, 180, 0.25),
+                    transparent 35%
+                ),
 
-            position: relative;
+                radial-gradient(
+                    circle at 80% 80%,
+                    rgba(138, 43, 226, 0.25),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #16001f,
+                    #3b0b45,
+                    #13001c
+                );
+
+            color: white;
         }
 
-        body::before,
-        body::after {
-            content: "";
-            position: absolute;
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.45;
-            animation: float 8s ease-in-out infinite alternate;
-        }
 
-        body::before {
-            background: #ff4fa3;
-            top: -100px;
-            left: -100px;
-        }
-
-        body::after {
-            background: #7c3aed;
-            bottom: -100px;
-            right: -100px;
-        }
-
-        @keyframes float {
-            from {
-                transform: translate(0, 0);
-            }
-
-            to {
-                transform: translate(70px, 50px);
-            }
-        }
-
-        /* Kalpler */
-
-        .heart {
-            position: absolute;
-            color: rgba(255, 255, 255, 0.18);
-            font-size: 25px;
-            animation: rise 8s linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes rise {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-
-            20% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(-120vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Ana kutu */
+        /* =========================
+           ANA KUTU
+        ========================== */
 
         .container {
-            position: relative;
-            z-index: 2;
 
-            width: min(90%, 650px);
-            padding: 50px 30px;
+            width: 100%;
+            max-width: 650px;
+
+            padding: 50px 35px;
 
             text-align: center;
 
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.07);
 
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.14);
 
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-
-            border-radius: 35px;
+            border-radius: 30px;
 
             box-shadow:
-                0 25px 80px rgba(0, 0, 0, 0.4),
-                inset 0 0 30px rgba(255, 255, 255, 0.04);
+                0 15px 40px rgba(0, 0, 0, 0.35);
 
-            animation: appear 1s ease;
+            animation: containerIn 0.6s ease;
+
+            position: relative;
+            z-index: 5;
         }
 
-        @keyframes appear {
+
+        @keyframes containerIn {
+
             from {
                 opacity: 0;
-                transform: translateY(30px) scale(0.95);
+                transform: translateY(20px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform: translateY(0);
             }
+
         }
+
+
+        /* =========================
+           BAŞLIK
+        ========================== */
 
         h1 {
-            color: white;
 
-            font-size: clamp(28px, 5vw, 46px);
+            font-size: clamp(
+                26px,
+                6vw,
+                46px
+            );
 
-            line-height: 1.3;
+            line-height: 1.35;
 
-            margin-bottom: 40px;
+            margin-bottom: 35px;
 
             text-shadow:
-                0 0 10px rgba(255, 105, 180, 0.7),
-                0 0 30px rgba(255, 105, 180, 0.35);
+                0 0 12px rgba(255, 105, 180, 0.55);
+
         }
 
-        /* Butonlar */
+
+        /* =========================
+           BUTONLAR
+        ========================== */
 
         .buttons {
+
             display: flex;
+
             justify-content: center;
-            gap: 20px;
+
+            align-items: center;
+
+            gap: 18px;
+
             flex-wrap: wrap;
+
         }
 
-        button {
-            border: none;
-            outline: none;
 
-            padding: 16px 42px;
+        button {
+
+            min-width: 150px;
+
+            padding: 15px 35px;
+
+            border: none;
 
             border-radius: 999px;
 
+            color: white;
+
             font-family: inherit;
 
-            font-size: 18px;
+            font-size: 17px;
 
             font-weight: bold;
 
-            color: white;
-
             cursor: pointer;
 
-            transition: 0.25s ease;
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+
+            -webkit-tap-highlight-color: transparent;
+
         }
+
+
+        /* EVET */
 
         .yes {
-            background: linear-gradient(135deg, #ff4fa3, #ff79bd);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff4fa3,
+                    #ff79bd
+                );
 
             box-shadow:
-                0 10px 30px rgba(255, 79, 163, 0.35);
+                0 8px 22px rgba(
+                    255,
+                    79,
+                    163,
+                    0.30
+                );
+
         }
+
+
+        /* HAYIR */
 
         .no {
-            background: rgba(255, 255, 255, 0.12);
 
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.10
+                );
 
-            box-shadow:
-                0 10px 30px rgba(0, 0, 0, 0.2);
+            border:
+                1px solid rgba(
+                    255,
+                    255,
+                    255,
+                    0.20
+                );
+
         }
 
-        button:hover {
-            transform: translateY(-5px) scale(1.05);
+
+        /* Bilgisayarda hover */
+
+        @media (hover: hover) {
+
+            button:hover {
+
+                transform:
+                    translateY(-3px)
+                    scale(1.03);
+
+            }
+
         }
 
-        .yes:hover {
-            box-shadow:
-                0 15px 40px rgba(255, 79, 163, 0.55);
+
+        /* Telefonda basma */
+
+        button:active {
+
+            transform:
+                scale(0.96);
+
         }
 
-        .no:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
 
-        /* Video */
+        /* =========================
+           VIDEO
+        ========================== */
 
         #result {
+
             display: none;
 
-            margin-top: 35px;
+            margin-top: 30px;
 
-            animation: videoAppear 0.6s ease;
+            animation:
+                videoIn 0.4s ease;
+
         }
 
-        @keyframes videoAppear {
+
+        @keyframes videoIn {
 
             from {
+
                 opacity: 0;
-                transform: scale(0.7);
+
+                transform:
+                    scale(0.95);
+
             }
 
             to {
+
                 opacity: 1;
-                transform: scale(1);
+
+                transform:
+                    scale(1);
+
             }
+
         }
+
 
         #result video {
+
+            display: block;
+
             width: 100%;
+
             max-width: 480px;
 
-            max-height: 400px;
+            max-height: 55vh;
 
-            border-radius: 25px;
+            margin: auto;
 
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 22px;
+
+            border:
+                1px solid rgba(
+                    255,
+                    255,
+                    255,
+                    0.18
+                );
+
+            background: #000;
 
             box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.45);
+                0 12px 35px rgba(
+                    0,
+                    0,
+                    0,
+                    0.4
+                );
+
+            object-fit: contain;
+
         }
 
-        .message {
-            color: rgba(255, 255, 255, 0.8);
 
-            margin-top: 15px;
+        /* =========================
+           MESAJ
+        ========================== */
+
+        .message {
+
+            margin-top: 14px;
 
             font-size: 14px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.75
+                );
+
+        }
+
+
+        /* =========================
+           KALPLER
+        ========================== */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -30px;
+
+            font-size: 20px;
+
+            opacity: 0.35;
+
+            pointer-events: none;
+
+            animation:
+                heartRise 9s linear infinite;
+
+            z-index: 1;
+
+        }
+
+
+        @keyframes heartRise {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+
+            }
+
+            15% {
+
+                opacity: 0.35;
+
+            }
+
+            85% {
+
+                opacity: 0.25;
+
+            }
+
+            100% {
+
+                transform:
+                    translateY(-110vh)
+                    rotate(180deg);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* =========================
+           MOBİL
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                padding:
+                    15px;
+
+                align-items:
+                    center;
+
+            }
+
+
+            .container {
+
+                padding:
+                    35px 20px;
+
+                border-radius:
+                    25px;
+
+            }
+
+
+            h1 {
+
+                font-size:
+                    clamp(
+                        24px,
+                        8vw,
+                        34px
+                    );
+
+                margin-bottom:
+                    28px;
+
+            }
+
+
+            .buttons {
+
+                gap:
+                    12px;
+
+            }
+
+
+            button {
+
+                min-width:
+                    130px;
+
+                padding:
+                    14px 25px;
+
+                font-size:
+                    15px;
+
+            }
+
+
+            #result video {
+
+                max-height:
+                    48vh;
+
+                border-radius:
+                    18px;
+
+            }
+
+        }
+
+
+        /* =========================
+           ÇOK KÜÇÜK TELEFON
+        ========================== */
+
+        @media (max-width: 380px) {
+
+            .container {
+
+                padding:
+                    30px 16px;
+
+            }
+
+
+            h1 {
+
+                font-size:
+                    23px;
+
+            }
+
+
+            button {
+
+                min-width:
+                    120px;
+
+                padding:
+                    13px 20px;
+
+                font-size:
+                    14px;
+
+            }
+
+        }
+
+
+        /* =========================
+           DÜŞÜK PERFORMANS / HAREKET
+        ========================== */
+
+        @media (
+            prefers-reduced-motion: reduce
+        ) {
+
+            * {
+
+                animation:
+                    none !important;
+
+                transition:
+                    none !important;
+
+            }
+
         }
 
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- Dekoratif kalpler -->
 
-    <div class="heart" style="left:10%; animation-delay:0s;">💖</div>
-    <div class="heart" style="left:25%; animation-delay:2s;">♡</div>
-    <div class="heart" style="left:45%; animation-delay:4s;">💗</div>
-    <div class="heart" style="left:65%; animation-delay:1s;">♡</div>
-    <div class="heart" style="left:85%; animation-delay:3s;">💖</div>
+    <!-- Hafif dekoratif kalpler -->
+
+    <div
+        class="heart"
+        style="
+            left: 10%;
+            animation-delay: 0s;
+        "
+    >
+        💖
+    </div>
 
 
-    <div class="container">
+    <div
+        class="heart"
+        style="
+            left: 35%;
+            animation-delay: 3s;
+        "
+    >
+        ♡
+    </div>
+
+
+    <div
+        class="heart"
+        style="
+            left: 65%;
+            animation-delay: 5s;
+        "
+    >
+        💗
+    </div>
+
+
+    <div
+        class="heart"
+        style="
+            left: 85%;
+            animation-delay: 1s;
+        "
+    >
+        ♡
+    </div>
+
+
+    <!-- =========================
+         ANA İÇERİK
+    ========================== -->
+
+    <main class="container">
+
 
         <h1>
+
             Şapşal Meliss<br>
+
             Sen Misin ? 🧐💖
+
         </h1>
 
 
+        <!-- BUTONLAR -->
+
         <div class="buttons">
+
 
             <button
                 class="yes"
-                onclick="showVideo('evet.mp4', 'Hehehe 💖')">
+                onclick="
+                    showVideo(
+                        'evet.mp4',
+                        'Hehehe 💖'
+                    )
+                "
+            >
 
                 Evet
 
@@ -284,78 +647,144 @@
 
             <button
                 class="no"
-                onclick="showVideo('hayir.mp4', 'Hmmm... 🧐')">
+                onclick="
+                    showVideo(
+                        'hayir.mp4',
+                        'Hmmm... 🧐'
+                    )
+                "
+            >
 
                 Hayır
 
             </button>
 
+
         </div>
 
 
-        <!-- Video alanı -->
+        <!-- =========================
+             VİDEO
+        ========================== -->
 
         <div id="result">
+
 
             <video
                 id="resultVideo"
                 controls
-                playsinline>
+                playsinline
+                preload="metadata"
+            >
 
-                <source id="videoSource" src="" type="video/mp4">
+                <source
+                    id="videoSource"
+                    src=""
+                    type="video/mp4"
+                >
 
-                Tarayıcınız video oynatmayı desteklemiyor.
+                Tarayıcınız video
+                oynatmayı desteklemiyor.
 
             </video>
 
+
             <div
                 class="message"
-                id="message">
-            </div>
+                id="message"
+            ></div>
+
 
         </div>
 
-    </div>
 
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
     <script>
 
-        function showVideo(video, message) {
+
+        function showVideo(
+            videoFile,
+            message
+        ) {
+
 
             const result =
-                document.getElementById("result");
-
-            const videoElement =
-                document.getElementById("resultVideo");
-
-            const videoSource =
-                document.getElementById("videoSource");
-
-            const messageText =
-                document.getElementById("message");
+                document.getElementById(
+                    "result"
+                );
 
 
-            videoSource.src = video;
-
-            videoElement.load();
-
-            result.style.display = "block";
-
-            messageText.textContent = message;
+            const video =
+                document.getElementById(
+                    "resultVideo"
+                );
 
 
-            // Videoyu otomatik başlat
+            const source =
+                document.getElementById(
+                    "videoSource"
+                );
 
-            videoElement.play().catch(() => {
 
-                // Tarayıcı otomatik oynatmayı engellerse
-                // kullanıcı play tuşuna basabilir.
+            const messageElement =
+                document.getElementById(
+                    "message"
+                );
 
-            });
+
+            /* Video adresini değiştir */
+
+            source.src =
+                videoFile;
+
+
+            /* Videoyu yeniden yükle */
+
+            video.load();
+
+
+            /* Alanı göster */
+
+            result.style.display =
+                "block";
+
+
+            /* Mesaj */
+
+            messageElement.textContent =
+                message;
+
+
+            /* Otomatik oynat */
+
+            video.play().catch(
+                () => {}
+            );
+
+
+            /* Video açılınca yukarı kaydır */
+
+            setTimeout(() => {
+
+                result.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }, 100);
 
         }
 
+
     </script>
 
+
 </body>
+
 </html>
